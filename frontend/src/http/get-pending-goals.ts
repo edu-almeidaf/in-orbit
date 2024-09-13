@@ -3,10 +3,10 @@ type PendingGoalsResponse = {
   title: string
   desiredWeeklyFrequency: number
   completionCount: number
-}
+}[]
 
 export async function getPendingGoals(): Promise<PendingGoalsResponse> {
-  const response = await fetch('http://localhost:3333/pensing-goals')
+  const response = await fetch('http://localhost:3333/pending-goals')
   const data = await response.json()
 
   return data.pendingGoals
