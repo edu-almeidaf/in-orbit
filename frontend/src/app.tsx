@@ -5,28 +5,15 @@ import { QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { queryClient } from './lib/react-query'
 // import { EmptyGoals } from './components/empty-goals'
 
-type SummaryResponse = {
-  completed: number
-  total: number
-  goalsPerDay: Record<
-    string,
-    {
-      id: string
-      title: string
-      completedAt: string
-    } 
-  >
-}
-
 export function App() {
-  const { data } = useQuery<SummaryResponse>({
+  const { data } = useQuery({
     queryKey: ['summary'],
     queryFn: async () => {
       const response = await fetch('http://localhost:3333/summary')
       const data = response.json()
 
       return data
-    }
+    },
   })
 
   return (
