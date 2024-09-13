@@ -57,9 +57,9 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
     ```
 
 ## Avisos:
-- Caso você vá rodar o projeto com o yarn, apague o arquivo package-lock.json, na instalação vai ser criado o arquivo yarn.lock
+- Caso opte por rodar o projeto com Yarn, remova o arquivo package-lock.json. Isso garantirá que o arquivo yarn.lock seja utilizado corretamente
 
-- Esse projeto roda na porta **5173**, caso você já tenha algum outro projeto rodando nessa porta, pode facilmente substituir a porta dentro do arquivo vite.config.js. Para isso, basta adicionar a chave **server** conforme o exemplo abaixo:
+- Esse projeto roda na porta **5173**. Caso já tenha outro serviço rodando nesta porta, pode facilmente substituir a porta dentro do arquivo `vite.config.js`. Para isso, basta adicionar a chave `server` conforme o exemplo abaixo:
 
   ```bash
   import { defineConfig } from 'vite'
