@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# Configuração e Execução do Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o README para o frontend do projeto, desenvolvido com **React** e **Vite**. Abaixo estão as instruções para configurar o ambiente de desenvolvimento e rodar o projeto localmente.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (versão 20 ou superior, para esse projeto eu utilizei a versão 20.14.0)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://classic.yarnpkg.com/) (gerenciador de pacotes)
+- Além disso, esse projeto depende do backend previamente configurado. Se você ainda não configurou, pode fazê-lo [clicando aqui](../backend/README.md)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalação
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone o Repositório**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   Se ainda não tiver o repositório clonado, faça isso com o comando:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- HTTPS:
+   ```bash
+   git clone https://github.com/edu-almeidaf/in-orbit.git
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- SSH:
+   ```bash
+   git clone git@github.com:edu-almeidaf/in-orbit.git
+   ```
+##
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. **Navegue até o diretório do Frontend**
+   ```bash
+   cd frontend
+   ```
+##
+
+3. **Instale as dependências**
+
+    Você pode instalar usando npm ou yarn:
+- npm:
+    ```bash
+    npm install
+    ```
+- yarn:
+    ```bash
+    yarn install
+    ```
+##
+
+4. **Rode o projeto**
+- npm:
+    ```bash
+    npm run dev
+    ```
+- yarn:
+    ```bash
+    yarn dev
+    ```
+
+## Avisos:
+- Caso você vá rodar o projeto com o yarn, apague o arquivo package-lock.json, na instalação vai ser criado o arquivo yarn.lock
+
+- Esse projeto roda na porta **5173**, caso você já tenha algum outro projeto rodando nessa porta, pode facilmente substituir a porta dentro do arquivo vite.config.js. Para isso, basta adicionar a chave **server** conforme o exemplo abaixo:
+
+  ```bash
+  import { defineConfig } from 'vite'
+  import react from '@vitejs/plugin-react'
+
+  // https://vitejs.dev/config/
+  export default defineConfig({
+    plugins: [react()],
+    server: {
+      port: 5173 //Número da porta desejada
+    }
+  })
+  ```
+---
+
+## Contato
+
+Se você tiver dúvidas ou sugestões, entre em contato:
+
+- Email: [eduardoa.fernandes@hotmail.com](mailto:eduardoa.fernandes@hotmail.com)
+- LinkedIn: [Eduardo de Almeida Fernandes](https://linkedin.com/in/almeidaedu)
+
+---
+
+## Licença
+
+Este projeto está licenciado sob os termos da [MIT License](../LICENSE).
+  
